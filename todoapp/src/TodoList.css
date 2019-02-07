@@ -1,0 +1,61 @@
+
+.todo-main .todo-main_header input {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #FFF;
+    width: 165px;
+  }
+  .todo-main .todo-main_header .add-item {
+    padding: 10px;
+    font-size: 16px;
+    margin: 10px;
+    margin-right: 0px;
+    background-color: #0066FF;
+    color: #FFF;
+    border: 2px solid #0066FF;
+  }
+  .todo-main .todo-main_header .add-item:hover {
+    cursor: pointer;
+    background-color: #003399;
+    border: 2px solid #003399;
+  }
+  .todo-main .list-item {
+    list-style: none;
+    padding-left: 0;
+    width: 250px;
+  } 
+
+  ul.list-item {
+    padding: 0;
+  }
+
+  .todo-main .list-item li {
+      position: relative;
+    color: #333;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    background-color: rgba(255,255,255,.5);
+  }
+   
+  .todo-main .list-item li:hover {
+    cursor: pointer;
+  }
+
+  .todo-main .list-item li span {
+    position: absolute;
+    right: 0.3rem;
+    bottom: .5rem;
+    font-size: 1.4rem;
+    border-radius: 50%;
+    padding: 0.1rem .5rem;
+    transition: all .2s ease-out;
+}
+
+.todo-main .list-item li span:hover{
+background-color: #b7cae6;
+}
+
+  .todo-main .list-item li span::after {
+      content: "×"
+  }
