@@ -1,28 +1,38 @@
-
 .todo-main .todo-main_header input {
+    width: 100%;
     padding: 10px;
     font-size: 16px;
-    border: 2px solid #FFF;
-    width: 165px;
+    border-radius: 4px 0 0 4px;
+    border: 1px solid #eee;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.025), 0 3px 6px rgba(0, 0, 0, 0.065);
   }
+
   .todo-main .todo-main_header .add-item {
-    padding: 10px;
+    padding: 8px 20px;
     font-size: 16px;
-    margin: 10px;
-    margin-right: 0px;
-    background-color: #0066FF;
     color: #FFF;
-    border: 2px solid #0066FF;
+    margin-right: 0px;
+    background-color: #039be5;
+    border: 2px solid #039be5;
+    border-radius: 0 4px 4px 0;
   }
+
+  .todo-main .todo-main_header .todo-form{
+    display: flex;
+  }
+
   .todo-main .todo-main_header .add-item:hover {
     cursor: pointer;
     background-color: #003399;
     border: 2px solid #003399;
   }
+
   .todo-main .list-item {
     list-style: none;
+    text-align: left;
     padding-left: 0;
-    width: 250px;
+    margin: 0.5rem auto;
+    width: 100%;
   } 
 
   ul.list-item {
@@ -33,9 +43,9 @@
       position: relative;
     color: #333;
     padding: 15px;
-    margin-bottom: 15px;
+    margin-bottom: .5rem;
     border-radius: 5px;
-    background-color: rgba(255,255,255,.5);
+    background-color: rgba(214, 213, 213, 0.5);
   }
    
   .todo-main .list-item li:hover {
@@ -45,17 +55,52 @@
   .todo-main .list-item li span {
     position: absolute;
     right: 0.3rem;
-    bottom: .5rem;
+    bottom: .6rem;
     font-size: 1.4rem;
     border-radius: 50%;
     padding: 0.1rem .5rem;
     transition: all .2s ease-out;
-}
+  }
 
 .todo-main .list-item li span:hover{
-background-color: #b7cae6;
+background-color: #e6b7b7;
 }
 
   .todo-main .list-item li span::after {
       content: "×"
   }
+
+  .filtering {
+    width: 100%;
+    display: flex;
+    color: #777;
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px 15px;
+    border-top: 1px solid #e6e6e6;
+}
+
+.filtering .items-count,
+.filtering .items-clear{
+  flex-basis: 25%;
+  cursor: pointer;  
+}
+
+.filtering ul{
+    display: flex;
+    flex-basis: 50%;
+    margin: 0;
+    list-style: none;
+}
+
+.filtering ul li{
+  flex-basis: 25%;
+  cursor: pointer;
+}
+
+.filtering ul li a.active{
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #ecbfbf;
+    
+}

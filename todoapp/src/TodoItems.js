@@ -7,8 +7,9 @@ class TodoItems extends Component {
       }
 
   createTasks(item) {
-    return <li 
-               key={item.key}>{item.text}
+    return <li key={item.key}>
+    <input type="checkbox" ></input>
+               {item.text}
                <span onClick={() => this.delete(item.key)}  className="remove">  </span>
             </li>
   }

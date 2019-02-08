@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import TodoItems from "./TodoItems";
+import Filtering from "./Filtering";
 
  
 class TodoApp extends Component {
@@ -12,19 +13,24 @@ class TodoApp extends Component {
 
     this.addItem = this.addItem.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
+    this.countItem = this.countItem.bind(this);
   }
 
   render() {
     return (
       <div className="todo-main">
         <div className="todo-main_header">
-          <form onSubmit={this.addItem}>
-            <input ref={(a) => this._inputElement = a}  placeholder="enter task">
+          <form onSubmit={this.addItem} className="todo-form">
+            <div className="input-group">
+            </div>
+            <input ref={(a) => this._inputElement = a}  placeholder="What needs to be done?">
             </input>
             <button type="submit"  className="add-item">add</button>
           </form>
         </div>
         <TodoItems entries={this.state.items} delete={this.deleteItem}/>
+
+        <Filtering count={this.countItem}/>
       </div>
     );
   } 
@@ -58,6 +64,10 @@ class TodoApp extends Component {
     this.setState({
       items: filteredItems
     });
+  }
+
+  countItem(){
+    return this.state.items.count();
   }
 }
  
