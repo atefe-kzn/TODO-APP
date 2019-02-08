@@ -98,7 +98,7 @@ background-color: #e6b7b7;
   cursor: pointer;
 }
 
-.filtering ul li a.active{
+.filtering ul li a.done{
   padding: 5px;
   border-radius: 3px;
   border: 1px solid #ecbfbf;

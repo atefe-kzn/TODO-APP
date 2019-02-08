@@ -13,7 +13,6 @@ class TodoApp extends Component {
 
     this.addItem = this.addItem.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
-    this.countItem = this.countItem.bind(this);
   }
 
   render() {
@@ -30,7 +29,7 @@ class TodoApp extends Component {
         </div>
         <TodoItems entries={this.state.items} delete={this.deleteItem}/>
 
-        <Filtering count={this.countItem}/>
+        <Filtering count={this.state.items}/>
       </div>
     );
   } 
@@ -53,9 +52,7 @@ class TodoApp extends Component {
        
     e.preventDefault();
   }
-
   
-
   deleteItem(key) {
     var filteredItems = this.state.items.filter(function (item) {
       return (item.key !== key);
@@ -66,9 +63,6 @@ class TodoApp extends Component {
     });
   }
 
-  countItem(){
-    return this.state.items.count();
-  }
 }
  
 export default TodoApp;

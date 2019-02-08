@@ -7,7 +7,7 @@ class Filtering extends Component {
       }
 
   render() {
-    var todoEntries = this.props.count;
+    var todoEntries = this.props.count.length;
 
     return (
         <footer className="filtering">
