@@ -20,8 +20,6 @@ class TodoApp extends Component {
       <div className="todo-main">
         <div className="todo-main_header">
           <form onSubmit={this.addItem} className="todo-form">
-            <div className="input-group">
-            </div>
             <input ref={(a) => this._inputElement = a}  placeholder="What needs to be done?">
             </input>
             <button type="submit"  className="add-item">add</button>
@@ -38,7 +36,8 @@ class TodoApp extends Component {
     if (this._inputElement.value !== "") {
       var newItem = {
         text: this._inputElement.value,
-        key: Date.now()
+        key: Date.now(),
+        completed: false
       };
    
       this.setState((prevState) => {
@@ -54,15 +53,14 @@ class TodoApp extends Component {
   }
   
   deleteItem(key) {
-    var filteredItems = this.state.items.filter(function (item) {
+    var removededItems = this.state.items.filter(function (item) {
       return (item.key !== key);
     });
    
     this.setState({
-      items: filteredItems
+      items: removededItems
     });
   }
-
 }
  
 export default TodoApp;

@@ -6,29 +6,30 @@ class Filtering extends Component {
         this.count = (this.props.count, 'item');
       }
 
-  render() {
-    var todoEntries = this.props.count.length;
 
+  render() {
+    var todoNotCheck = this.props.count.length;
+    var onFilter = this.props.onFilter;
+
+    if (todoNotCheck > 0){
     return (
         <footer className="filtering">
         <span className="items-count">
-          <strong>{todoEntries}</strong> items left
+          <strong>{todoNotCheck}</strong> items
         </span>
         <ul className="filters">
           <li>
-            <a>
+            <a onClick={onFilter} value="all" href="#" className="selected">
                 All
             </a>
           </li>
-          {' '}
           <li>
-            <a>
+            <a onClick={onFilter} value="false" href="#">
                 Active
             </a>
           </li>
-          {' '}
           <li>
-            <a>
+            <a onClick={onFilter} value="true" href="#">
                 Completed
             </a>
           </li>
@@ -38,6 +39,8 @@ class Filtering extends Component {
         </span>
       </footer>
     );
+}else
+    return null;
   }
 };
  

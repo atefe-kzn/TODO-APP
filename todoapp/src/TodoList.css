@@ -11,6 +11,7 @@
     padding: 8px 20px;
     font-size: 16px;
     color: #FFF;
+    cursor: pointer;
     margin-right: 0px;
     background-color: #039be5;
     border: 2px solid #039be5;
@@ -19,12 +20,6 @@
 
   .todo-main .todo-main_header .todo-form{
     display: flex;
-  }
-
-  .todo-main .todo-main_header .add-item:hover {
-    cursor: pointer;
-    background-color: #003399;
-    border: 2px solid #003399;
   }
 
   .todo-main .list-item {
@@ -40,12 +35,13 @@
   }
 
   .todo-main .list-item li {
-      position: relative;
+    position: relative;
     color: #333;
     padding: 15px;
     margin-bottom: .5rem;
     border-radius: 5px;
     background-color: rgba(214, 213, 213, 0.5);
+    transition: color .2s ease-out;
   }
    
   .todo-main .list-item li:hover {
@@ -70,6 +66,11 @@ background-color: #e6b7b7;
       content: "×"
   }
 
+  .todo-main .list-item li.complete{
+    text-decoration: line-through;
+    color: #8a8a8a;
+  }
+
   .filtering {
     width: 100%;
     display: flex;
@@ -82,23 +83,38 @@ background-color: #e6b7b7;
 
 .filtering .items-count,
 .filtering .items-clear{
-  flex-basis: 25%;
+  flex-basis: 33%;
   cursor: pointer;  
+}
+
+.filtering .items-count{
+  text-align: left
+}
+
+.filtering .items-clear{
+  text-align: right
 }
 
 .filtering ul{
     display: flex;
     flex-basis: 50%;
     margin: 0;
+    padding: 0;
     list-style: none;
 }
 
 .filtering ul li{
   flex-basis: 25%;
   cursor: pointer;
+  text-align:center;
 }
 
-.filtering ul li a.done{
+.filtering ul li a{
+  color: unset;
+  text-decoration: unset;
+}
+
+.filtering ul li a.selected{
   padding: 5px;
   border-radius: 3px;
   border: 1px solid #ecbfbf;
