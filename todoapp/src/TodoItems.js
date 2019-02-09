@@ -7,17 +7,16 @@ class TodoItems extends Component {
     constructor (props){
         super(props);
         this.state = {
-          show: allItems,
-          completed: this.props.entries.completed || false
+          show: allItems
         };
         this.createTasks = this.createTasks.bind(this);
-        this.handleChange = this.handleChange.bind(this);
       }
 
   createTasks(item) {
+
     return (
-    <li key={item.key} className={this.state.completed ? "complete" : ""}>
-    <input type="checkbox" checked={this.state.completed} onChange={this.handleChange}></input>
+    <li key={item.key} className={item.checked ? "complete" : ""}>
+    <input type="checkbox" key={item.key} checked={item.checked}  onChange={() => this.props.complete(item)}></input>
                {item.text}
                <span onClick={() => this.delete(item.key)}  className="remove">  </span>
     </li>
@@ -26,11 +25,6 @@ class TodoItems extends Component {
   delete(key) {
     this.props.delete(key);
   }
-
-  handleChange() {
-    this.setState({ completed: !this.state.completed });
-  }
-
 
   render() {
     let entries = this.props.entries;

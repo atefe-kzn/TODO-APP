@@ -13,6 +13,7 @@ class TodoApp extends Component {
 
     this.addItem = this.addItem.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
+    this.complete = this.complete.bind(this);
   }
 
   render() {
@@ -25,7 +26,7 @@ class TodoApp extends Component {
             <button type="submit"  className="add-item">add</button>
           </form>
         </div>
-        <TodoItems entries={this.state.items} delete={this.deleteItem}/>
+        <TodoItems entries={this.state.items} delete={this.deleteItem} complete={this.complete}/>
 
         <Filtering count={this.state.items}/>
       </div>
@@ -37,7 +38,7 @@ class TodoApp extends Component {
       var newItem = {
         text: this._inputElement.value,
         key: Date.now(),
-        completed: false
+        checked: false
       };
    
       this.setState((prevState) => {
@@ -59,6 +60,12 @@ class TodoApp extends Component {
    
     this.setState({
       items: removededItems
+    });
+  }
+
+  complete = ({ key, checked }) => {
+    this.setState({
+      items: this.state.items.map(item => item.key === key ? { text: item.text ,key: item.key, checked: !checked } : item)
     });
   }
 }
