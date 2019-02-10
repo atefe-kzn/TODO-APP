@@ -17,6 +17,7 @@ class TodoApp extends Component {
     this.deleteItem = this.deleteItem.bind(this);
     this.complete = this.complete.bind(this);
     this.onFilter = this.onFilter.bind(this);
+    this.clearCompleted = this.clearCompleted.bind(this);
   }
 
   render() {
@@ -31,7 +32,7 @@ class TodoApp extends Component {
         </div>
         <TodoItems entries={this.state.items} delete={this.deleteItem} complete={this.complete}/>
 
-        <Filtering count={this.state.items.length} onFilter={this.onFilter}/>
+        <Filtering count={this.state.items.length} onFilter={this.onFilter} clearCompleted={this.clearCompleted}/>
       </div>
     );
   } 
@@ -87,7 +88,16 @@ class TodoApp extends Component {
     this.setState({
       items: 
       entries.filter(function (item) {
-        return (item.checked !== false);
+        return (item.checked == false);
+      })
+    });
+  }
+
+  clearCompleted (){
+    this.setState({
+      items: 
+      this.state.items.filter(function (item) {
+        return (item.checked == false);
       })
     });
   }

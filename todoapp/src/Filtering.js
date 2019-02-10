@@ -34,7 +34,7 @@ class Filtering extends Component {
           </li>
         </ul>
         <span className="items-clear">
-        <span>clearButton</span>
+        <span onClick={() =>this.props.clearCompleted()}>clearButton</span>
         </span>
       </footer>
     );
