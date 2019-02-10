@@ -8,8 +8,7 @@ class Filtering extends Component {
 
 
   render() {
-    var todoNotCheck = this.props.count.length;
-    var onFilter = this.props.onFilter;
+    var todoNotCheck = this.props.count;
 
     if (todoNotCheck > 0){
     return (
@@ -19,23 +18,23 @@ class Filtering extends Component {
         </span>
         <ul className="filters">
           <li>
-            <a onClick={onFilter} value="all" href="#" className="selected">
+            <span onClick={() => this.props.onFilter("all" )} className="selected">
                 All
-            </a>
+            </span>
           </li>
           <li>
-            <a onClick={onFilter} value="false" href="#">
+            <span onClick={() => this.props.onFilter("active")}>
                 Active
-            </a>
+            </span>
           </li>
           <li>
-            <a onClick={onFilter} value="true" href="#">
+            <span onClick={() => this.props.onFilter("completed")} >
                 Completed
-            </a>
+            </span>
           </li>
         </ul>
         <span className="items-clear">
-        <a>clearButton</a>
+        <span>clearButton</span>
         </span>
       </footer>
     );

@@ -109,12 +109,8 @@ background-color: #e6b7b7;
   text-align:center;
 }
 
-.filtering ul li a{
-  color: unset;
-  text-decoration: unset;
-}
 
-.filtering ul li a.selected{
+.filtering ul li span.selected{
   padding: 5px;
   border-radius: 3px;
   border: 1px solid #ecbfbf;
