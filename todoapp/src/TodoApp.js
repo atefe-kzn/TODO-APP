@@ -75,22 +75,29 @@ class TodoApp extends Component {
 
   onFilter = (value) => {
     const entries = this.state.items;
-    var show = entries.filter((entries) => {
+    var activ = {
+      items:  entries.map(function (item) {
+        return (item.checked == false); })
+    };
+    
+    var comp = {
+      items:  entries.map(function (item) {
+        return (item.checked == true); })
+    };
+
+    var show = entries.map((entries) => {
       switch (value) {
       case activeItems:
-        return !entries.completed;
+        return activ;
       case completedItems:
-        return entries.completed;
+        return comp;
       default:
         return true;
       }
     });
-    this.setState({
-      items: 
-      entries.filter(function (item) {
-        return (item.checked == false);
-      })
-    });
+
+    this.setState(show);
+    
   }
 
   clearCompleted (){
